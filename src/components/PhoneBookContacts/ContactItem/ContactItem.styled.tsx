@@ -7,6 +7,15 @@ export const Item = styled.li`
   padding: 10px 0 10px 0;
   width: 100%;
   justify-content: space-between;
+  margin: 4px 0 4px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: rgb(250, 250, 250);
+  &:hover {
+    padding: 5px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 10px;
+    border-radius: 8px;
+  }
 `;
 
 export const ButtonDelete = styled.button`
