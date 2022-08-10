@@ -9,7 +9,7 @@ export const ListWraper = styled.ul`
   /* width: 390px; */
   @media screen and (max-width: 500px) {
     & {
-      width: 330px;
+      /* width: 330px; */
     }
   }
 `;
@@ -29,4 +29,9 @@ export const BoxList = styled.div`
     transform: scale(1.1);
     z-index: 1;
   } */
+  @media screen and (max-width: 500px) {
+    & {
+      width: 300px;
+    }
+  }
 `;

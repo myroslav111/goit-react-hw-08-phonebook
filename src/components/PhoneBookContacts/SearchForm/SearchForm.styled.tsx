@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const FormFind = styled.form`
   position: relative;
@@ -29,6 +29,7 @@ export const Input = styled.input`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  font-family: cursive;
   &:focus,
   &:valid {
     background: var(--input);

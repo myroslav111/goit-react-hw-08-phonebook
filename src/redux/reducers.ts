@@ -1,59 +1,80 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-// import contactReducer from "../redux/reducers";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { RootState } from "./store";
-
-// import { combineReducers } from "redux";
-// import types from "./actions-types";
-
-export interface IContactObj {
-  id: string;
-  name: string;
-  number: string;
-}
-
-interface IContacts {
-  items: IContactObj[];
-  filter: "";
-}
-
-const contacts: IContacts = {
-  items: [
-    { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-    { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-    { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-  ],
-  filter: "",
-};
-
-export const contactSlice: any = createSlice({
-  name: "contact",
-  initialState: contacts,
-  reducers: {
-    add: (state, action: PayloadAction<IContactObj>) => {
-      state.items.push(action.payload);
-    },
-    remove: (state: any, action: PayloadAction<string>) => {
-      return {
-        ...state,
-        items: state.items.filter(
-          (contact: any) => contact.id !== action.payload
-        ),
-      };
-    },
-    filtered: (state: any, action: PayloadAction<string>) => {
-      return { ...state, filter: action.payload };
-    },
-  },
-});
+import { getContacts, addContact, deleteContact } from "./actions";
+import { IContacts } from "../interface-ts/interface";
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["items"],
 };
+
+const contacts: IContacts = {
+  items: [],
+  filter: "",
+  addLoader: false,
+  loader: false,
+  error: null,
+};
+
+export const contactSlice = createSlice({
+  name: "contacts",
+  initialState: contacts,
+  reducers: {
+    filtered: (state: any, action: PayloadAction<string>) => {
+      return { ...state, filter: action.payload };
+    },
+  },
+  extraReducers: {
+    [getContacts.pending.type]: (state: any, _: any) => ({
+      ...state,
+      loader: true,
+    }),
+    [getContacts.fulfilled.type]: (state: any, { payload }) => ({
+      ...state,
+      items: payload,
+      loader: false,
+    }),
+    [getContacts.rejected.type]: (state: any, { payload }) => ({
+      ...state,
+      error: payload,
+      loader: false,
+    }),
+
+    [addContact.pending as any]: (state: any, _: any) => ({
+      ...state,
+      addLoader: true,
+    }),
+    [addContact.fulfilled as any]: (state: any, { payload }) => ({
+      ...state,
+      items: [payload, ...state.items],
+      addLoader: false,
+    }),
+    [addContact.rejected as any]: (state: any, { payload }) => ({
+      ...state,
+      error: payload,
+      addLoader: false,
+    }),
+
+    [deleteContact.pending.type]: (state: any, _: any) => ({
+      ...state,
+      loader: true,
+    }),
+    [deleteContact.fulfilled.type]: (state: any, { payload }) => ({
+      ...state,
+      items: state.items.filter(({ id }: any) => id !== payload),
+      loader: false,
+    }),
+    [deleteContact.rejected.type]: (state: any, { payload }) => ({
+      ...state,
+      error: payload,
+      loader: false,
+    }),
+  },
+});
 
 export const inputReducer: any = persistReducer<RootState>(
   persistConfig,
@@ -61,10 +82,38 @@ export const inputReducer: any = persistReducer<RootState>(
 );
 
 // Action creators are generated for each case reducer function
-export const { add, remove, filtered } = contactSlice.actions;
+export const { filtered } = contactSlice.actions;
 
 export const getDataItem = (state: RootState) => state.items;
 export const getDataFilter = (state: RootState) => state.filter;
+export const getDataLoader = (state: RootState) => state.addLoader;
+/**----------------------------------------------------------------------------- */
+// import { getContact } from "../service/api";
+// import { combineReducers } from "redux";
+// import types from "./actions-types";
+// import contactReducer from "../redux/reducers";
+// export const contactSlice: any = createSlice({
+//   name: "contact",
+//   initialState: contacts,
+//   reducers: {
+//     add: (state, action: PayloadAction<IContactObj>) => {
+//       state.items.push(action.payload);
+//     },
+//     remove: (state: any, action: PayloadAction<string>) => {
+//       return {
+//         ...state,
+//         items: state.items.filter(
+//           (contact: any) => contact.id !== action.payload
+//         ),
+//       };
+//     },
+//     filtered: (state: any, action: PayloadAction<string>) => {
+//       return { ...state, filter: action.payload };
+//     },
+//   },
+// });
+
+// export const { add, remove, filtered } = contactSlice.actions;
 /**----------------------------------------------------------- */
 // // const initialContacts =
 // const items = (state: Object[] = contacts.items, { type, payload }: any) => {

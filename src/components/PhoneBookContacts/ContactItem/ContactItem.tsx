@@ -1,12 +1,11 @@
 import { Item, Name, Number, ButtonDelete } from "./ContactItem.styled";
 import { useDispatch } from "react-redux";
-import { remove } from "../../../redux/reducers";
-// import { connect } from "react-redux";
-// import actions from "../../../redux/actions";
+import { deleteContact } from "../../../redux/actions";
+import type { AppDispatch } from "../../../redux/store";
 
 function ContactItem(props: any) {
   const { contact } = props;
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <Item key={contact.id}>
       <div>
@@ -14,7 +13,10 @@ function ContactItem(props: any) {
         <Number>{contact.number}</Number>
       </div>
 
-      <ButtonDelete type="button" onClick={() => dispatch(remove(contact.id))}>
+      <ButtonDelete
+        type="button"
+        onClick={() => dispatch(deleteContact(contact.id))}
+      >
         delete
       </ButtonDelete>
     </Item>
@@ -23,6 +25,9 @@ function ContactItem(props: any) {
 
 export default ContactItem;
 /**----------------------------------------------------------- */
+// import { remove } from "../../../redux/reducers";
+// import { connect } from "react-redux";
+// import actions from "../../../redux/actions";
 // function ContactItem(props: any) {
 //   const { contact, onDeleteContact } = props;
 //   return (

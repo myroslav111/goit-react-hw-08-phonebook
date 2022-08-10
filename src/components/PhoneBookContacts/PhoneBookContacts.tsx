@@ -4,11 +4,20 @@ import ContactItem from "./ContactItem";
 import { useSelector } from "react-redux";
 import "./animations/animation.css";
 import { getDataItem, getDataFilter } from "../../redux/reducers";
-// import { connect } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { getContacts } from "../../redux/actions";
 
 function PhoneBookContacts() {
   const arrContacts = useSelector(getDataItem);
   const filteredString = useSelector(getDataFilter);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
 
   // отфильтрованый масив контактов отвечающий поиску
   const getVisibleContact = (allContact: Object[], filter: string) => {
@@ -36,6 +45,7 @@ function PhoneBookContacts() {
 export default PhoneBookContacts;
 
 /**------------------------------------------------------------------------------- */
+// import { connect } from "react-redux";
 // function PhoneBookContacts({ arrContacts }: any) {
 //   return (
 //     <BoxList>

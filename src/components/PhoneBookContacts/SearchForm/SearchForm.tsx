@@ -2,12 +2,11 @@ import { FormFind, Label, Input, Span } from "./SearchForm.styled";
 import { useSelector, useDispatch } from "react-redux";
 import { filtered } from "../../../redux/reducers";
 import { getDataFilter } from "../../../redux/reducers";
-// import { connect } from "react-redux";
-// import actions from "../../../redux/actions";
+import { AppDispatch } from "../../../redux/store";
 
 function SearchForm() {
   const value = useSelector(getDataFilter);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   // записываем велью инпута
   const changeFilter = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch(filtered(e.currentTarget.value));
@@ -31,6 +30,8 @@ function SearchForm() {
 export default SearchForm;
 
 /**------------------------------------------------- */
+// import { connect } from "react-redux";
+// import actions from "../../../redux/actions";
 // function SearchForm(props: any) {
 //   return (
 //     <FormFind>

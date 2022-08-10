@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { persistStore } from "redux-persist";
 import { inputReducer } from "./reducers";
 import {
   persistStore,
@@ -28,7 +27,7 @@ export type AppDispatch = typeof store.dispatch;
 export const persistor = persistStore(store);
 
 /*-------------------------------------------------------------------------------- */
-
+// import { persistStore } from "redux-persist";
 // import { createStore } from "redux";
 // import { combineReducers } from "redux";
 // import { composeWithDevTools } from "redux-devtools-extension";

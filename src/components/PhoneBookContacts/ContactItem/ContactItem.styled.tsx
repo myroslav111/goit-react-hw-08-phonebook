@@ -61,8 +61,18 @@ export const ButtonDelete = styled.button`
 export const Name = styled.span`
   font-size: 30px;
   margin-right: 10px;
+  @media screen and (max-width: 500px) {
+    & {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const Number = styled.span`
   font-size: 30px;
+  @media screen and (max-width: 500px) {
+    & {
+      font-size: 20px;
+    }
+  }
 `;

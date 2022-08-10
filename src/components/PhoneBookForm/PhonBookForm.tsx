@@ -5,14 +5,11 @@ import { Form } from "./PhoneBookForm.styled";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
-import { add } from "../../redux/reducers";
-import { IContactObj } from "../../redux/reducers";
+import { addContact } from "../../redux/actions";
+import { IContactObj } from "../../interface-ts/interface";
 import { toast } from "react-toastify";
 import { getDataItem } from "../../redux/reducers";
-
-// import actions from "../../redux/actions";
-// import { connect } from "react-redux";
-// import type { RootState } from "../../redux/store";
+import type { AppDispatch } from "../../redux/store";
 
 function FormPhonebook() {
   const [name, setName] = useState("");
@@ -20,8 +17,8 @@ function FormPhonebook() {
 
   const contacts = useSelector(getDataItem);
 
-  // const count = useSelector((state: RootState) => state);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
   // записываем значение инпута по name
   const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const { name, value } = e.currentTarget;
@@ -57,7 +54,7 @@ function FormPhonebook() {
       reset();
       return;
     }
-    dispatch(add(formData));
+    dispatch(addContact(formData));
     toast.success("success");
     reset();
   };
@@ -79,6 +76,10 @@ function FormPhonebook() {
 export default FormPhonebook;
 
 /**----------------------------------------------------------------------------- */
+// import actions from "../../redux/actions";
+// import { connect } from "react-redux";
+// import type { RootState } from "../../redux/store";
+// import { add } from "../../redux/reducers";
 // interface IFormData {
 //   name: string;
 //   number: string;
