@@ -7,10 +7,11 @@ export const Item = styled.li`
   padding: 10px 0 10px 0;
   width: 100%;
   justify-content: space-between;
-  margin: 4px 0 4px 0;
+  margin: 6px 0 6px 0;
   cursor: pointer;
   border-radius: 8px;
-  background-color: rgb(250, 250, 250);
+  background-color: white;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
     padding: 5px;
     box-shadow: rgb(0 0 0 / 10%) 0px 4px 10px;
