@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import AddContact from "./page/AddContact";
 import PhoneBook from "./page/PhoneBook";
 import Navigation from "./components/Navigation";
@@ -16,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<AddContact />} />
             <Route path="/contacts" element={<PhoneBook />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PersistGate>
       </Provider>
