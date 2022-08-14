@@ -30,3 +30,28 @@ export const Link = styled(NavLink)`
     font-size: 20px;
   }
 `;
+
+export const LinkTitle = styled(NavLink)`
+  all: unset;
+  cursor: pointer;
+  /* &:not(:last-of-type) {
+    margin-right: 15px;
+  }
+
+  &.active {
+    color: green;
+    font-size: 20px;
+  } */
+  &:hover {
+    color: #03e9f4;
+  }
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+`;

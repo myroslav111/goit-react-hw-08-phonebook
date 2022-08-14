@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { inputReducer } from "./reducers";
+import storage from "redux-persist/lib/storage";
+import authSlice from "./auth/auth-slice";
+import contactSlice from "./reducers";
 import {
+  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -10,8 +13,19 @@ import {
   REGISTER,
 } from "redux-persist";
 
+const persistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
+};
+
+const inputReducer = persistReducer(persistConfig, authSlice);
+
 export const store = configureStore({
-  reducer: inputReducer,
+  reducer: {
+    auth: inputReducer,
+    contacts: contactSlice,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -25,20 +39,3 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export const persistor = persistStore(store);
-
-/*-------------------------------------------------------------------------------- */
-// import { persistStore } from "redux-persist";
-// import { createStore } from "redux";
-// import { combineReducers } from "redux";
-// import { composeWithDevTools } from "redux-devtools-extension";
-// import reducers from "./reducers";
-
-// const rootReducer = combineReducers({
-//   contact: reducers,
-// });
-
-// const store = createStore(rootReducer, composeWithDevTools());
-// // можно передать пред. состояние
-// // const store = createStore(reducer, {prev.state});
-
-// export default store;

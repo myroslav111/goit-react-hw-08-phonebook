@@ -11,7 +11,7 @@ export const Item = styled.li`
   cursor: pointer;
   border-radius: 8px;
   background-color: white;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
     padding: 5px;
     box-shadow: rgb(0 0 0 / 10%) 0px 4px 10px;
