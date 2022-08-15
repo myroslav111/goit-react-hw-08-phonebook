@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Text = styled.div`
-  color: #fffbf1;
+  /* color: #fffbf1; */
   color: rgb(237, 237, 237);
+  color: #2e2e31;
   text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
   font-size: 80px;
   font-family: "Rampart One", cursive;
