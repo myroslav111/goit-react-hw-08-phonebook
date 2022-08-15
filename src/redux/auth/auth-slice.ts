@@ -58,6 +58,27 @@ export const authSlice = createSlice({
     [operations.logOut.rejected.type](state: any, action: any) {
       return { ...state, error: action.payload, isLoading: false };
     },
+    [operations.getCurrentUser.pending.type](state: any) {
+      return {
+        ...state,
+        isFetchingCurrentUser: true,
+      };
+    },
+    [operations.getCurrentUser.fulfilled.type](state: any, action: any) {
+      return {
+        ...state,
+        user: action.payload,
+        isLogIn: true,
+        isFetchingCurrentUser: false,
+      };
+    },
+    [operations.getCurrentUser.rejected.type](state: any, action: any) {
+      return {
+        ...state,
+        error: action.payload,
+        isFetchingCurrentUser: false,
+      };
+    },
   },
 });
 

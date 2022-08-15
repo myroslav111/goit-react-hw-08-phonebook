@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { ToastContainer } from "react-toastify";
+
 import RegisterPage from "./page/RegisterPage";
 import LogInPage from "./page/LogInPage";
 import StartPage from "./page/StartPage";

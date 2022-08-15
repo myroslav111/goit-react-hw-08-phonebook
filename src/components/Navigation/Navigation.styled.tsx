@@ -76,4 +76,8 @@ export const Exit = styled.span`
   cursor: pointer;
   margin-left: 10px;
   padding-top: 8px;
+
+  &:hover {
+    color: #03e9f4;
+  }
 `;

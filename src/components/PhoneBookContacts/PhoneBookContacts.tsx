@@ -8,15 +8,19 @@ import { getDataItem, getDataFilter } from "../../redux/reducers";
 // import { useDispatch } from "react-redux";
 // import { AppDispatch } from "../../redux/store";
 // import { getContacts } from "../../redux/actions";
+// import { getIsLogIn } from "../../redux/auth/auth-slice";
+// import operations from "../../redux/auth/auth-operations";
 
 function PhoneBookContacts() {
   const arrContacts = useSelector(getDataItem);
   const filteredString = useSelector(getDataFilter);
 
   // const dispatch = useDispatch<AppDispatch>();
+  // const isLogedIn = useSelector(getIsLogIn);
 
+  // let n: any;
   // useEffect(() => {
-  //   dispatch(getContacts());
+  //   dispatch(operations.getCurrentUser(""));
   // }, [dispatch]);
 
   // отфильтрованый масив контактов отвечающий поиску
