@@ -9,7 +9,7 @@ const token = {
   set(token: string) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
-  unSet() {
+  unset() {
     axios.defaults.headers.common.Authorization = "";
   },
 };
@@ -23,13 +23,42 @@ const register = createAsyncThunk(
       toast.success("success!");
       return data;
     } catch (error: any) {
+      toast.error("error");
       console.log(error.message);
     }
   }
 );
 
+const logIn = createAsyncThunk(
+  "auth/login",
+  async (credentials: IDataToPost) => {
+    try {
+      const { data } = await axios.post("/users/login", credentials);
+      token.set(data.token);
+      toast.success("success!");
+      return data;
+    } catch (error: any) {
+      toast.error("error");
+      console.log(error.message);
+    }
+  }
+);
+
+const logOut = createAsyncThunk("auth/logOut", async () => {
+  try {
+    await axios.post("/users/logout");
+    token.unset();
+    toast.success("LogOut!");
+  } catch (error: any) {
+    console.log(error.message);
+    toast.error("error");
+    return error.message;
+  }
+});
 const operations = {
   register,
+  logIn,
+  logOut,
 };
 
 export default operations;

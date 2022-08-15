@@ -4,11 +4,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { IDataToPost } from "../../interface-ts/interface";
 import operations from "../../redux/auth/auth-operations";
+import { useNavigate } from "react-router-dom";
 
 function AuthForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -46,6 +48,7 @@ function AuthForm() {
     formData.password = target.password.value;
     console.log(formData);
     dispatch(operations.register(formData));
+    navigate("/add-contacts");
     reset();
   };
 

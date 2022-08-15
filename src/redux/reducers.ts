@@ -1,16 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-// import { persistReducer } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
 import { RootState } from "./store";
 import { getContacts, addContact, deleteContact } from "./actions";
 import { IContacts } from "../interface-ts/interface";
 
-// const persistConfig = {
-//   key: "root",
-//   storage,
-//   blacklist: ["items"],
-// };
 
 const contacts: IContacts = {
   items: [],
@@ -76,10 +69,7 @@ const contactSlice = createSlice({
   },
 });
 
-// export const inputReducer: any = persistReducer<RootState>(
-//   persistConfig,
-//   contactSlice.reducer
-// );
+
 
 // Action creators are generated for each case reducer function
 export const { filtered } = contactSlice.actions;

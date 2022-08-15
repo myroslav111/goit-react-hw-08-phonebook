@@ -1,5 +1,11 @@
-function StartPage () {
-    return <div>HELLO</div>
+import HomePageAnimation from "../../components/HomePageAnimation";
+
+function StartPage() {
+  return (
+    // <div>
+    <HomePageAnimation />
+    // </div>
+  );
 }
 
-export default StartPage
+export default StartPage;

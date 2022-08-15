@@ -15,9 +15,10 @@ import Navigation from "./components/Navigation";
 function App() {
   return (
     <>
-      <Navigation />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
+          <Navigation />
+
           <Routes>
             <Route path="/" element={<StartPage />} />
             <Route path="/login" element={<LogInPage />} />

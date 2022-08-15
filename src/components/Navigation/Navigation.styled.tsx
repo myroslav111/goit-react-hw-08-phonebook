@@ -19,9 +19,9 @@ export const NavWrap = styled.nav`
 export const Link = styled(NavLink)`
   all: unset;
   cursor: pointer;
-  &:not(:last-of-type) {
-    margin-right: 15px;
-  }
+  /* &:not(:last-of-type) {} */
+  margin-right: 15px;
+
   &:hover {
     color: #03e9f4;
   }
@@ -54,4 +54,26 @@ export const Wrap = styled.div`
     margin-right: 10px;
     border-radius: 8px;
   }
+`;
+
+export const Greetings = styled.span`
+  /* margin-right: 15px; */
+  font-family: "The Nautigal", cursive;
+  color: inherit;
+  font-size: 20px;
+  @media screen and (max-width: 500px) {
+    & {
+      font-size: 5px;
+    }
+  }
+`;
+
+export const Exit = styled.span`
+  /* margin-right: 15px; */
+  /* font-family: "The Nautigal", cursive; */
+  color: yellow;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 10px;
+  padding-top: 8px;
 `;

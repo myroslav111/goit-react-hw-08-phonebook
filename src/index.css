@@ -18,7 +18,7 @@ code {
 }
 /*----------------------------------------------------------------------*/
 .form .control input {
-  width: 100%;
+  /* width: 100%; */
   padding: 14px 16px;
   border: 0;
   background: transparent;
@@ -242,4 +242,12 @@ code {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+} /*----------------------------animation home text page---------------------------*/
+@keyframes tipsy {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
 }
