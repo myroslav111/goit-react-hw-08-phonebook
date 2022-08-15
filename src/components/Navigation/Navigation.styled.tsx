@@ -6,8 +6,10 @@ export const NavWrap = styled.nav`
   margin-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  color: white;
-  background-color: gray;
+  /* color: white; */
+  color: var(--text);
+  /* background-color: gray; */
+  background-color: var(--grey);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,7 +73,7 @@ export const Greetings = styled.span`
 export const Exit = styled.span`
   /* margin-right: 15px; */
   /* font-family: "The Nautigal", cursive; */
-  color: yellow;
+  color: green;
   font-size: 30px;
   cursor: pointer;
   margin-left: 10px;

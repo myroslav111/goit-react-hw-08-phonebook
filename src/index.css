@@ -16,7 +16,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/*----------------------------------------------------------------------*/
+/*dark theme*/
+html[data-theme="dark"] {
+  background: var(--background);
+  --grey: #000000;
+  --hover: #0178bf;
+  --background: rgba(20, 20, 20, 1);
+  --text: #ffffff;
+  --form: #212121;
+  --boook-box: black;
+  --box-shadow: rgb(26 94 69 / 50%) 0px 4px 10px;
+}
+
+/*light theme*/
+html[data-theme="light"] {
+  background: var(--background);
+  --grey: white;
+  --hover: #000000;
+  --background: #ffffff;
+  --text: #000000;
+  --form: #ffffff;
+  --boook-box: rgb(250, 250, 250);
+  --box-shadow: rgb(0 0 0 / 10%) 0px 4px 10px;
+}
+
+/*------------------------------form reg----------------------------------------*/
 .form .control input {
   /* width: 100%; */
   padding: 14px 16px;
@@ -211,7 +235,7 @@ code {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
-/*---------------------------------------------*/
+/*----------------------animation for react-----------------------*/
 .container {
   position: relative;
 }

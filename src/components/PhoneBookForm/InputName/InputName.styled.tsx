@@ -4,7 +4,7 @@ export const InputWrap = styled.label`
   display: flex;
   flex-direction: column;
   width: 80%;
-  color: black;
+  color: var(--text);
   font-size: 25px;
 `;
 export const InputBook = styled.input`

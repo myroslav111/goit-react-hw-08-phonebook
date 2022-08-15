@@ -4,17 +4,17 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0 10px 0;
+  padding: 10px 5px 10px 5px;
   width: 100%;
   justify-content: space-between;
   margin: 6px 0 6px 0;
   cursor: pointer;
   border-radius: 8px;
   background-color: white;
+  background-color: var(--form);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
-    padding: 5px;
-    box-shadow: rgb(0 0 0 / 10%) 0px 4px 10px;
+    box-shadow: var(--box-shadow);
     border-radius: 8px;
   }
 `;
@@ -34,8 +34,8 @@ export const ButtonDelete = styled.button`
   outline: none;
   background-color: #f4f5f6;
   border-radius: 8px;
-  box-shadow: -6px -20px 35px #ffffff, -6px -10px 15px #ffffff,
-    -20px 0px 52px #ffffff, 2px 3px 6px rgb(0 0 0 / 89%);
+  /* box-shadow: -6px -20px 35px #ffffff, -6px -10px 15px #ffffff,
+    -20px 0px 52px #ffffff, 2px 3px 6px rgb(0 0 0 / 89%); */
   transition: 0.13s ease-in-out;
   cursor: pointer;
   &:active {
@@ -69,6 +69,7 @@ export const ButtonDelete = styled.button`
 `;
 
 export const Name = styled.span`
+  color: var(--text);
   font-size: 30px;
   margin-right: 10px;
   @media screen and (max-width: 500px) {
@@ -79,6 +80,7 @@ export const Name = styled.span`
 `;
 
 export const Number = styled.span`
+  color: var(--text);
   font-size: 30px;
   @media screen and (max-width: 500px) {
     & {

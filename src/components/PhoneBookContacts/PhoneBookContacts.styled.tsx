@@ -25,6 +25,7 @@ export const BoxList = styled.div`
   margin-right: auto;
   font-family: "The Nautigal", cursive;
   background-color: rgb(250, 250, 250);
+  background-color: var(--boook-box);
   /* background-color: rgba(123, 128, 135, 0.5); */
   /* &:hover {
     transform: scale(1.1);

@@ -15,7 +15,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  color: var(--fg);
+  color: var(--text);
   font: 1em/1.5 Hind, sans-serif;
   margin: auto;
   display: block;
@@ -32,7 +32,7 @@ export const Input = styled.input`
   font-family: cursive;
   &:focus,
   &:valid {
-    background: var(--input);
+    background: white;
     border-radius: 0.25em;
     box-shadow: none;
     padding: 0.25em 1em;
@@ -56,10 +56,11 @@ export const Input = styled.input`
 `;
 
 export const Span = styled.span`
+  color: var(--text);
   margin: auto;
   display: block;
   transition: all calc(var(--dur) * 0.5) linear;
-  background: currentColor;
+  background: var(--text);
   border-radius: 0 0 0.125em 0.125em;
   margin-bottom: -0.6em;
   width: 0.25em;

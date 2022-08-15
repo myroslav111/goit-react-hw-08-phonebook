@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import operations from "../../redux/auth/auth-operations";
+import Them from "../Them/Them";
 
 const Navigation = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,6 +23,7 @@ const Navigation = () => {
         <LinkTitle to="/">
           <span>Phone book</span>
         </LinkTitle>
+        <Them />
         {isLogIn ? <UserNav /> : <AuthNav />}
       </NavWrap>
     </>
