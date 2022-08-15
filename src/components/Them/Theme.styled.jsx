@@ -3,6 +3,12 @@ import styled from "@emotion/styled";
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    & {
+      position: absolute;
+      top: 57px;
+    }
+  }
 `;
 
 export const Sun = styled.span`

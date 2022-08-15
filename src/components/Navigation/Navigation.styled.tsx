@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 export const NavWrap = styled.nav`
   height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding-left: 10px;
   padding-right: 10px;
   /* color: white; */
