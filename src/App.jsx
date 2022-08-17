@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 // import { store, persistor } from "./redux/store";
 // import { PersistGate } from "redux-persist/integration/react";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { lazy, Suspense } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
