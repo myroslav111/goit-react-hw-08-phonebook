@@ -8,7 +8,7 @@ const resources = {
   en: {
     translation: {
       lang: "lang",
-      phonebook: "Phone-book",
+      phonebook: "Phonebook",
       leng: "en",
       sign_in: "Sign In",
       login: "Log In",
