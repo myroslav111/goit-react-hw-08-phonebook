@@ -4,10 +4,10 @@ import ContactItem from "./ContactItem";
 import { useSelector } from "react-redux";
 import "./animations/animation.css";
 import { getDataItem, getDataFilter } from "../../redux/reducers";
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { AppDispatch } from "../../redux/store";
-// import { getContacts } from "../../redux/actions";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { getContacts } from "../../redux/actions";
 // import { getIsLogIn } from "../../redux/auth/auth-slice";
 // import operations from "../../redux/auth/auth-operations";
 
@@ -15,13 +15,11 @@ function PhoneBookContacts() {
   const arrContacts = useSelector(getDataItem);
   const filteredString = useSelector(getDataFilter);
 
-  // const dispatch = useDispatch<AppDispatch>();
-  // const isLogedIn = useSelector(getIsLogIn);
+  const dispatch = useDispatch<AppDispatch>();
 
-  // let n: any;
-  // useEffect(() => {
-  //   dispatch(operations.getCurrentUser(""));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
 
   // отфильтрованый масив контактов отвечающий поиску
   const getVisibleContact = (allContact: Object[], filter: string) => {
@@ -47,5 +45,3 @@ function PhoneBookContacts() {
 }
 
 export default PhoneBookContacts;
-
-

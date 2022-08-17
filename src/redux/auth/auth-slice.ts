@@ -58,6 +58,7 @@ export const authSlice = createSlice({
     [operations.logOut.rejected.type](state: any, action: any) {
       return { ...state, error: action.payload, isLoading: false };
     },
+    
     [operations.getCurrentUser.pending.type](state: any) {
       return {
         ...state,
@@ -84,5 +85,6 @@ export const authSlice = createSlice({
 
 export const getIsLogIn = (state: RootState) => state.auth.isLogIn;
 export const getUserName = (state: RootState) => state.auth.user.name;
+export const refresh = (state: RootState) => state.auth.isFetchingCurrentUser;
 
 export default authSlice.reducer;

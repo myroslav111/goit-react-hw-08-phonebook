@@ -48,6 +48,6 @@ export const Text = styled.div`
 
   &:after {
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
-    box-shadow: 25px 25px 25px rgba(46, 46, 49, 0.8);
+    box-shadow: var(--shadow);
   }
 `;

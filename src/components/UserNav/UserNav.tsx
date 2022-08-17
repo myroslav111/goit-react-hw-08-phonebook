@@ -5,6 +5,7 @@ import { BsDoorOpen } from "react-icons/bs";
 import operations from "../../redux/auth/auth-operations";
 import { AppDispatch } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
+// import { toast } from "react-toastify";
 
 const UserNav = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,6 +14,7 @@ const UserNav = () => {
   const exit = () => {
     dispatch(operations.logOut());
     navigate("/");
+    // toast.success("LogOut!");
   };
   return (
     <>

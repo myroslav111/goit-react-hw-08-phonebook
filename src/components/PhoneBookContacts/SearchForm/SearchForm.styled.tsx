@@ -8,6 +8,7 @@ export const FormFind = styled.form`
 
 export const Label = styled.label`
   color: #e3e4e8;
+  /* color: black; */
   overflow: hidden;
   position: absolute;
   width: 0;
@@ -15,7 +16,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  color: var(--text);
+  color: var(--search-input);
   font: 1em/1.5 Hind, sans-serif;
   margin: auto;
   display: block;
@@ -30,6 +31,7 @@ export const Input = styled.input`
   -moz-appearance: none;
   appearance: none;
   font-family: cursive;
+  cursor: pointer;
   &:focus,
   &:valid {
     background: white;
@@ -44,6 +46,7 @@ export const Input = styled.input`
   &:focus {
     animation: showCaret var(--dur) steps(1);
     outline: transparent;
+    box-shadow: var(--hover);
   }
   &:focus + Span,
   &:valid + Span {
@@ -53,14 +56,17 @@ export const Input = styled.input`
     height: 1.5em;
     transform: translate(0, -1em) rotate(-180deg) translate(7.5em, -0.25em);
   }
+  &:hover {
+  }
 `;
 
 export const Span = styled.span`
   color: var(--text);
+  /* color: black; */
   margin: auto;
   display: block;
   transition: all calc(var(--dur) * 0.5) linear;
-  background: var(--text);
+  background: var(--search-input);
   border-radius: 0 0 0.125em 0.125em;
   margin-bottom: -0.6em;
   width: 0.25em;
