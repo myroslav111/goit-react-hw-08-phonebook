@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getIsLogIn } from "../redux/auth/auth-slice";
 
@@ -7,5 +7,5 @@ export default function PrivateRoute({ redirectPath = "/", children }) {
   if (!isLoggedIn) {
     return <Navigate to={redirectPath} replace />;
   }
-  return children;
+  return children ? children : <Outlet />;
 }

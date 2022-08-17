@@ -5,11 +5,13 @@ import { useDispatch } from "react-redux";
 import { IDataToPost } from "../../interface-ts/interface";
 import operations from "../../redux/auth/auth-operations";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function LogInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -55,12 +57,12 @@ function LogInForm() {
     <>
       <FormAuth autoComplete="off" className="form" onSubmit={handleSubmit}>
         <div>
-          <h1>Log In</h1>
+          <h1>{t("login")}</h1>
         </div>
         <div className="control block-cube block-input">
           <input
             name="email"
-            placeholder="Email"
+            placeholder={t("email")}
             type="email"
             pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
             title="Input corect Email"
@@ -81,7 +83,7 @@ function LogInForm() {
         <div className="control block-cube block-input">
           <input
             name="password"
-            placeholder="Password"
+            placeholder={t("password")}
             type="password"
             value={password}
             onChange={handleChange}
@@ -106,7 +108,7 @@ function LogInForm() {
           <div className="bg">
             <div className="bg-inner"></div>
           </div>
-          <div className="text">Log In</div>
+          <div className="text">{t("login")}</div>
         </button>
       </FormAuth>
     </>

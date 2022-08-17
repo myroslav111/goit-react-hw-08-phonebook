@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { getIsLogIn } from "../redux/auth/auth-slice";
 
 export default function PublicRoute({
-  //   isLoggedIn,
   restricted,
   redirectPath = "/",
   children,

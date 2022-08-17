@@ -1,10 +1,12 @@
 import { InputWrap, InputBook } from "./InputName.styled";
+import { useTranslation } from "react-i18next";
 
 const Input = (props: any) => {
   const { value, onChange } = props;
+  const { t } = useTranslation();
   return (
     <InputWrap>
-      Name
+      {t("names")}
       <InputBook
         type="text"
         name="name"

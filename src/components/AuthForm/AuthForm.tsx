@@ -5,13 +5,14 @@ import { useDispatch } from "react-redux";
 import { IDataToPost } from "../../interface-ts/interface";
 import operations from "../../redux/auth/auth-operations";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function AuthForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
   // записываем значение инпута по name
@@ -63,12 +64,12 @@ function AuthForm() {
     <>
       <FormAuth className="form" autoComplete="off" onSubmit={handleSubmit}>
         <div>
-          <h1>Sign In</h1>
+          <h1>{t("sign_in")}</h1>
         </div>
         <div className="control block-cube block-input">
           <input
             name="name"
-            placeholder="Username"
+            placeholder={t("name")}
             type="text"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -89,7 +90,7 @@ function AuthForm() {
         <div className="control block-cube block-input">
           <input
             name="email"
-            placeholder="Email"
+            placeholder={t("email")}
             type="email"
             pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
             title="Input corect Email"
@@ -110,7 +111,7 @@ function AuthForm() {
         <div className="control block-cube block-input">
           <input
             name="password"
-            placeholder="Password"
+            placeholder={t("password")}
             type="password"
             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{7,}$"
             title="Minimum five characters, at least one letter and one number"
@@ -138,7 +139,7 @@ function AuthForm() {
           <div className="bg">
             <div className="bg-inner"></div>
           </div>
-          <div className="text">Sign Up</div>
+          <div className="text">{t("sign_in")}</div>
         </button>
       </FormAuth>
     </>

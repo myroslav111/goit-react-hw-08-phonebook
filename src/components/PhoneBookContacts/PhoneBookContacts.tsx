@@ -8,8 +8,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { getContacts } from "../../redux/actions";
-// import { getIsLogIn } from "../../redux/auth/auth-slice";
-// import operations from "../../redux/auth/auth-operations";
 
 function PhoneBookContacts() {
   const arrContacts = useSelector(getDataItem);
