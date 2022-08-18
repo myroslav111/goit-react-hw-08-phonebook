@@ -1,7 +1,11 @@
 import { Wrap, Link, Greetings, Exit } from "../Navigation/Navigation.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserName } from "../../redux/auth/auth-slice";
-import { BsDoorOpen } from "react-icons/bs";
+import {
+  BsDoorOpen,
+  BsFillPersonPlusFill,
+  BsFillPersonLinesFill,
+} from "react-icons/bs";
 import operations from "../../redux/auth/auth-operations";
 import { AppDispatch } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
@@ -18,10 +22,15 @@ const UserNav = () => {
     navigate("/");
   };
   return (
+    // {t("add")}{t("contacts")}
     <>
       <Wrap>
-        <Link to="/add-contacts">{t("add")}</Link>
-        <Link to="/contacts">{t("contacts")}</Link>
+        <Link to="/add-contacts">
+          <BsFillPersonPlusFill />
+        </Link>
+        <Link to="/contacts">
+          <BsFillPersonLinesFill />
+        </Link>
         <img
           alt="GitHub"
           width="32px"

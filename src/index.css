@@ -35,6 +35,10 @@ html[data-theme="dark"] {
   --form: #212121;
   --boook-box: black;
   --box-shadow: rgb(26 94 69 / 50%) 0px 4px 10px;
+  --box-shadow-nav: 25px 25px 75px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
   --search-input: #03e9f4;
 }
 
@@ -49,6 +53,8 @@ html[data-theme="light"] {
   --form: #ffffff;
   --boook-box: rgb(250, 250, 250);
   --box-shadow: rgb(0 0 0 / 10%) 0px 4px 10px;
+  --box-shadow-nav: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   --search-input: black;
 }
 
