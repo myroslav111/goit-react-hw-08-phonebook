@@ -14,7 +14,6 @@ function AuthForm() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
-
   // записываем значение инпута по name
   const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const { name, value } = e.currentTarget;
@@ -92,7 +91,8 @@ function AuthForm() {
             name="email"
             placeholder={t("email")}
             type="email"
-            pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+            // pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+            pattern="^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$"
             title="Input corect Email"
             required
             value={email}

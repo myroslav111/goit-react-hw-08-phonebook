@@ -64,7 +64,7 @@ function LogInForm() {
             name="email"
             placeholder={t("email")}
             type="email"
-            pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+            pattern="^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$"
             title="Input corect Email"
             required
             value={email}
